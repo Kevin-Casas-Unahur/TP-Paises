@@ -24,15 +24,22 @@ interface PaisInter{
         return (this.poblacion / this.superficie).toInt()
     }
 
-    // fun vecinoMasPoblado():Pais{
-    // el maximo en poblacion de los vecinos, pero cuenta también al pais local
-    // }
+    //El maximo en poblacion de los vecinos, pero cuenta también al pais local
+    fun vecinoMasPoblado(): PaisInter {
+        var paisesACheckear = paisesLimitrofes
+        paisesACheckear.add(this)
+        return paisesACheckear.maxByOrNull { it.poblacion }!!
+    }
+
+
+
 
     fun esLimitrofeDe(pais: Pais): Boolean {
         return this.paisesLimitrofes.contains(pais)
     }
 
     fun necesitaTraduccion(pais: Pais){
+
     }
 
     fun aliadoPotencial(pais: Pais){
