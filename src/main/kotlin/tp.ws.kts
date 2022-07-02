@@ -47,7 +47,8 @@ interface PaisInter{
         return bloquesRegionales.intersect(pais.bloquesRegionales).isNotEmpty()
     }
 
-    fun convieneIrDeCompras(pais: Pais){
+    fun convieneIrDeCompras(pais: Pais): Boolean {
+        return pais.cotizacionNacionalDolar() > this.cotizacionNacionalDolar()
     }
 
     fun aCuantoEquivale(pais: Pais){
