@@ -18,5 +18,9 @@ object Observatorio {
         return this.paisConNombre(primerPais).necesitaTraduccion(this.paisConNombre(segundoPais))
     }
 
+    fun sonPotencialesAliados(primerPais:String, segundoPais: String): Boolean {
+        return this.paisConNombre(primerPais).aliadoPotencial(this.paisConNombre(segundoPais))
+    }
+
 
 }

@@ -39,7 +39,7 @@ interface PaisInter{
         return idiomasOficiales.intersect(pais.idiomasOficiales).isEmpty()
     }
 
-    fun aliadoPotencial(pais: Pais): Boolean {
+    fun aliadoPotencial(pais: PaisInter): Boolean {
         return !this.necesitaTraduccion(pais) && this.compartenBloqueRegional(pais)
     }
 
