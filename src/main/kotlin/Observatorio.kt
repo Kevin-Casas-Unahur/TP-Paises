@@ -30,5 +30,10 @@ object Observatorio {
         return this.paisConNombre(primerPais).aCuantoEquivale(this.paisConNombre(segundoPais), montoDelPrimerPais)
     }
 
-
+    fun codigosISODeLos5MasPoblados(): List<String> {
+        val paisesOrdenados = listaDePaises
+        paisesOrdenados.sortByDescending { it.poblacion }
+        val codigosISO = paisesOrdenados.map { it.codigoAlfa3 }
+        return codigosISO.subList(0, 4)
+    }
 }
