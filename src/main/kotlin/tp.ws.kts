@@ -51,7 +51,12 @@ interface PaisInter{
         return pais.cotizacionNacionalDolar() > this.cotizacionNacionalDolar()
     }
 
-    fun aCuantoEquivale(pais: Pais){
+    fun aCuantoEquivale(pais: Pais, monto: Int){
+        return
+    }
+
+    fun convertirADolar(monto: Int): Int {
+        return monto.div(this.cotizacionNacionalDolar()).toInt()
     }
 }
 
