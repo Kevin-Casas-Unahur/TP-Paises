@@ -40,7 +40,7 @@ interface PaisInter{
     }
 
     fun aliadoPotencial(pais: Pais): Boolean {
-        return !this.necesitaTraduccion(pais) &&
+        return !this.necesitaTraduccion(pais) && this.compartenBloqueRegional(pais)
     }
 
     fun compartenBloqueRegional(pais: Pais): Boolean {
