@@ -43,4 +43,9 @@ object Observatorio {
         continentes.sortByDescending { it.esPlurinacional() }
         return continentes[0].continente
     }
+
+    fun promedioDePoblacionDePaisesInsulares(): Int {
+        val paisesInsulares = listaDePaises.filter{it.esIsla()}
+        return (paisesInsulares.sumBy { it.poblacion }.div(paisesInsulares.size)).toInt()
+    }
 }
