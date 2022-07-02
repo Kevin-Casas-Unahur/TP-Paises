@@ -7,7 +7,7 @@ interface PaisInter{
     var superficie: Float
     var continente: String
     var codigoMonedaLocal: Int
-    fun cotizacionNacionalDolar():Int
+    fun cotizacionNacionalDolar(): Double
     var paisesLimitrofes: MutableList<PaisInter>
     var bloquesRegionales: MutableList<Bloque>
     var idiomasOficiales: MutableList<String>
@@ -51,12 +51,12 @@ interface PaisInter{
         return pais.cotizacionNacionalDolar() > this.cotizacionNacionalDolar()
     }
 
-    fun aCuantoEquivale(pais: Pais, monto: Int): Int {
-        return this.convertirADolar(monto) * pais.cotizacionNacionalDolar().toInt()
+    fun aCuantoEquivale(pais: Pais, monto: Double): Double {
+        return this.convertirADolar(monto) * pais.cotizacionNacionalDolar()
     }
 
-    fun convertirADolar(monto: Int): Int {
-        return monto.div(this.cotizacionNacionalDolar()).toInt()
+    fun convertirADolar(monto: Double): Double {
+        return monto.div(this.cotizacionNacionalDolar())
     }
 }
 
