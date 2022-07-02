@@ -11,7 +11,11 @@ object Observatorio {
     }
 
     fun sonLimitrofes(primerPais:String, segundoPais: String): Boolean {
-        return paisConNombre(primerPais).esLimitrofeDe(paisConNombre(segundoPais))
+        return this.paisConNombre(primerPais).esLimitrofeDe(this.paisConNombre(segundoPais))
+    }
+
+    fun necesitanTraduccion(primerPais:String, segundoPais: String): Boolean {
+        return this.paisConNombre(primerPais).necesitaTraduccion(this.paisConNombre(segundoPais))
     }
 
 

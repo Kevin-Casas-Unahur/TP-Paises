@@ -35,7 +35,7 @@ interface PaisInter{
         return this.paisesLimitrofes.contains(pais)
     }
 
-    fun necesitaTraduccion(pais: Pais): Boolean {
+    fun necesitaTraduccion(pais: PaisInter): Boolean {
         return idiomasOficiales.intersect(pais.idiomasOficiales).isEmpty()
     }
 
