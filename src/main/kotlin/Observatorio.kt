@@ -36,4 +36,11 @@ object Observatorio {
         val codigosISO = paisesOrdenados.map { it.codigoAlfa3 }
         return codigosISO.subList(0, 4)
     }
+
+    fun continenteConMasPaisesPlurinacionales(): String {
+        val continentes = listaDePaises
+        continentes.groupBy { it.continente }
+        continentes.sortByDescending { it.esPlurinacional() }
+        return continentes[0].continente
+    }
 }

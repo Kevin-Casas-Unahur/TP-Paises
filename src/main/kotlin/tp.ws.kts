@@ -12,6 +12,8 @@ interface PaisInter{
     var bloquesRegionales: MutableList<Bloque>
     var idiomasOficiales: MutableList<String>
 
+
+
     fun esPlurinacional(): Boolean {
         return this.idiomasOficiales.size >= 2
     }
