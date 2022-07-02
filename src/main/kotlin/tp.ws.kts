@@ -43,7 +43,7 @@ interface PaisInter{
         return !this.necesitaTraduccion(pais) && this.compartenBloqueRegional(pais)
     }
 
-    fun compartenBloqueRegional(pais: Pais): Boolean {
+    fun compartenBloqueRegional(pais: PaisInter): Boolean {
         return bloquesRegionales.intersect(pais.bloquesRegionales).isNotEmpty()
     }
 
@@ -51,7 +51,7 @@ interface PaisInter{
         return pais.cotizacionNacionalDolar() > this.cotizacionNacionalDolar()
     }
 
-    fun aCuantoEquivale(pais: Pais, monto: Double): Double {
+    fun aCuantoEquivale(pais: PaisInter, monto: Double): Double {
         return this.convertirADolar(monto) * pais.cotizacionNacionalDolar()
     }
 

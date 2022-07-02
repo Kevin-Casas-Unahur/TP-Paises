@@ -26,7 +26,9 @@ object Observatorio {
         return this.paisConNombre(primerPais).convieneIrDeCompras(this.paisConNombre(segundoPais))
     }
 
-
+    fun cuantoEquivaleLaMonedaEntre(primerPais:String, segundoPais: String, montoDelPrimerPais: Double): Double {
+        return this.paisConNombre(primerPais).aCuantoEquivale(this.paisConNombre(segundoPais), montoDelPrimerPais)
+    }
 
 
 }
