@@ -22,5 +22,11 @@ object Observatorio {
         return this.paisConNombre(primerPais).aliadoPotencial(this.paisConNombre(segundoPais))
     }
 
+    fun convieneIrDeCompras(primerPais:String, segundoPais: String): Boolean {
+        return this.paisConNombre(primerPais).convieneIrDeCompras(this.paisConNombre(segundoPais))
+    }
+
+
+
 
 }
