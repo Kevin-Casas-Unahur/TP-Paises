@@ -31,7 +31,7 @@ interface PaisInter{
         return paisesACheckear.maxByOrNull { it.poblacion }!!
     }
 
-    fun esLimitrofeDe(pais: Pais): Boolean {
+    fun esLimitrofeDe(pais: PaisInter): Boolean {
         return this.paisesLimitrofes.contains(pais)
     }
 
