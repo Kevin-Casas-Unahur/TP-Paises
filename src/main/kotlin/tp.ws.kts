@@ -31,18 +31,16 @@ interface PaisInter{
         return paisesACheckear.maxByOrNull { it.poblacion }!!
     }
 
-
-
-
     fun esLimitrofeDe(pais: Pais): Boolean {
         return this.paisesLimitrofes.contains(pais)
     }
 
-    fun necesitaTraduccion(pais: Pais){
-
+    fun necesitaTraduccion(pais: Pais): Boolean {
+        return idiomasOficiales.intersect(pais.idiomasOficiales).isEmpty()
     }
 
     fun aliadoPotencial(pais: Pais){
+
     }
 
     fun convieneIrDeCompras(pais: Pais){
