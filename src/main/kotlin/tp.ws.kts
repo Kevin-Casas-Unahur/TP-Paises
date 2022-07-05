@@ -64,8 +64,11 @@ interface PaisInter{
 
 class Pais(override var nombre: String): PaisInter{
 
+    init {Observatorio.listaDePaises.add(this)}
+
     override var codigoAlfa3: String = ""
         set(value: String) {codigoAlfa3 = value}
+
 
     override var poblacion: Int = 0
         set(value: Int) {poblacion = value}
