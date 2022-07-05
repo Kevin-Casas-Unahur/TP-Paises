@@ -39,9 +39,17 @@ object Observatorio {
 
     fun continenteConMasPaisesPlurinacionales(): String {
         val continentes = listaDePaises
+        val listaContinentes = mutableMapOf<String, Int>()
+
+        listaDePaises.forEach{if(!listaContinentes.containsKey(it.continente)){listaContinentes.keys.add(it.continente)}}
+        listaDePaises.forEach { if(it.esPlurinacional() ) {
+            listaContinentes[it.continente]!!.plus(1)} }
+
+        /*
         continentes.groupBy { it.continente }
         continentes.sortByDescending { it.esPlurinacional() }
-        return continentes[0].continente
+        */
+        return listaContinentes.maxOf {}//continentes[0].continente
     }
 
     fun promedioDePoblacionDePaisesInsulares(): Int {
