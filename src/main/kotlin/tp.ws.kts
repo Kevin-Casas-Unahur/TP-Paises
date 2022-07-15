@@ -4,7 +4,7 @@ interface PaisInter{
     var nombre: String
     var codigoAlfa3: String
     var poblacion: Int
-    var superficie: Float
+    var superficie: Double
     var continente: String
     var codigoMonedaLocal: Int
     var cotizacionNacionalDolar: Double
@@ -62,47 +62,21 @@ interface PaisInter{
     }
 }
 
-class Pais(override var nombre: String): PaisInter{
+class Pais(override var nombre: String = "", override var codigoAlfa3: String = "", override var poblacion: Int = 0,
+            override var superficie: Double = 0.0, override var continente: String = "",
+            override  var codigoMonedaLocal: Int = 0, override var cotizacionNacionalDolar: Double = 0.0): PaisInter{
 
     init {Observatorio.listaDePaises.add(this)}
 
-    override var codigoAlfa3: String = ""
-        set(value: String) {codigoAlfa3 =  value}
-
-
-    override var poblacion: Int = 0
-        set(value: Int) {poblacion = value}
-
-    override var superficie: Float = 0.0F
-        set(value: Float) {superficie = value}
-
-    override var continente: String = ""
-        set(value: String) {continente = value}
-
-    override var codigoMonedaLocal: Int = 0
-        set(value: Int) {codigoMonedaLocal = value}
-
-    override var cotizacionNacionalDolar: Double = 0.0
-        set(value: Double) {cotizacionNacionalDolar = value}
-
     override var paisesLimitrofes: MutableList<PaisInter>
         get() = paisesLimitrofes
-        set(value: MutableList<PaisInter>) {paisesLimitrofes = value}
+        set(listaPaises) {paisesLimitrofes = listaPaises}
 
     override var bloquesRegionales: MutableList<String>
         get() = bloquesRegionales
-        set(value) {bloquesRegionales = value}
+        set(bloques) {bloquesRegionales = bloques}
 
     override var idiomasOficiales: MutableList<String>
         get() = idiomasOficiales
-        set(value) {idiomasOficiales = value}
-}
-/*
-abstract class Bloque{
-    var paisesQueLoComponen: MutableList<PaisInter>
-
-}*/
-
-abstract class Pais: PaisInter{
-
+        set(idiomas) {idiomasOficiales = idiomas}
 }
