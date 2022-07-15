@@ -64,19 +64,27 @@ interface PaisInter{
 
 class Pais(override var nombre: String = "", override var codigoAlfa3: String = "", override var poblacion: Int = 0,
             override var superficie: Double = 0.0, override var continente: String = "",
-            override  var codigoMonedaLocal: String = "", override var cotizacionNacionalDolar: Double = 0.0): PaisInter{
+            override  var codigoMonedaLocal: String = "", override var cotizacionNacionalDolar: Double = 0.0): PaisInter {
 
-    init {Observatorio.listaDePaises.add(this)}
+    init {
+        Observatorio.listaDePaises.add(this)
+    }
 
     override var paisesLimitrofes: MutableList<PaisInter>
         get() = paisesLimitrofes
-        set(listaPaises) {paisesLimitrofes = listaPaises}
+        set(listaPaises) {
+            paisesLimitrofes = listaPaises
+        }
 
     override var bloquesRegionales: MutableList<String>
         get() = bloquesRegionales
-        set(bloques) {bloquesRegionales = bloques}
+        set(bloques) {
+            bloquesRegionales = bloques
+        }
 
     override var idiomasOficiales: MutableList<String>
         get() = idiomasOficiales
-        set(idiomas) {idiomasOficiales = idiomas}
+        set(value) {
+            idiomasOficiales = value
+        }
 }
