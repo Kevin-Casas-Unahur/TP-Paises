@@ -6,7 +6,7 @@ interface PaisInter{
     var poblacion: Int
     var superficie: Double
     var continente: String
-    var codigoMonedaLocal: Int
+    var codigoMonedaLocal: String
     var cotizacionNacionalDolar: Double
     var paisesLimitrofes: MutableList<PaisInter>
     var bloquesRegionales: MutableList<String>
@@ -28,7 +28,7 @@ interface PaisInter{
 
     //El maximo en poblacion de los vecinos, pero cuenta también al pais local
     fun vecinoMasPoblado(): PaisInter {
-        var paisesACheckear = paisesLimitrofes
+        val paisesACheckear = paisesLimitrofes
         paisesACheckear.add(this)
         return paisesACheckear.maxByOrNull { it.poblacion }!!
     }
@@ -64,7 +64,7 @@ interface PaisInter{
 
 class Pais(override var nombre: String = "", override var codigoAlfa3: String = "", override var poblacion: Int = 0,
             override var superficie: Double = 0.0, override var continente: String = "",
-            override  var codigoMonedaLocal: Int = 0, override var cotizacionNacionalDolar: Double = 0.0): PaisInter{
+            override  var codigoMonedaLocal: String = "", override var cotizacionNacionalDolar: Double = 0.0): PaisInter{
 
     init {Observatorio.listaDePaises.add(this)}
 
