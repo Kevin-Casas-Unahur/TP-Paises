@@ -67,11 +67,11 @@ class PaisesTest: DescribeSpec ({
 
 
     describe("Vecino mas poblado") {
-        argentina.vecinoMasPoblado().equals(bolivia)
-        brasil.vecinoMasPoblado().equals(bolivia)
-        uruguay.vecinoMasPoblado().equals(brasil)
-        bolivia.vecinoMasPoblado().equals(brasil)
-        cuba.vecinoMasPoblado().equals(cuba)
+        argentina.vecinoMasPoblado().shouldBe(argentina)
+        brasil.vecinoMasPoblado().shouldBe(brasil)
+        uruguay.vecinoMasPoblado().shouldBe(brasil)
+        bolivia.vecinoMasPoblado().shouldBe(brasil)
+        cuba.vecinoMasPoblado().shouldBe(cuba)
     }
 
     describe("Son Limitrofes") {
