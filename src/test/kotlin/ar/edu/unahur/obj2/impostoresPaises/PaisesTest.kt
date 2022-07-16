@@ -20,6 +20,7 @@ class PaisesTest: DescribeSpec ({
 
     val bolivia = Tp_ws.Pais("Bolivia", "BOL", 11670000, 1099000000.0, "America", "BOB", 6.88)
 
+    val cuba = Tp_ws.Pais("Cuba", "CUB", 11330000, 113860.0, "America", "CUP", 23.96)
 
     //Idiomas Paises
     argentina.idiomasOficiales.add("Español")
@@ -28,9 +29,11 @@ class PaisesTest: DescribeSpec ({
     bolivia.idiomasOficiales.add("Español")
     bolivia.idiomasOficiales.add("Aimara")
     bolivia.idiomasOficiales.add("guaraní")
+    cuba.idiomasOficiales.add("Español")
 
     //Paises Limitrofes
     argentina.paisesLimitrofes.add(uruguay)
+    argentina.paisesLimitrofes.add(bolivia)
     brasil.paisesLimitrofes.add(uruguay)
     uruguay.paisesLimitrofes.add(argentina)
     uruguay.paisesLimitrofes.add(brasil)
@@ -42,6 +45,7 @@ class PaisesTest: DescribeSpec ({
     brasil.bloquesRegionales.add("OEA")
     uruguay.bloquesRegionales.add("OEA")
     bolivia.bloquesRegionales.add("OEA")
+    cuba.bloquesRegionales.add("UNASUR")
 
 
 
@@ -50,6 +54,7 @@ class PaisesTest: DescribeSpec ({
         brasil.esPlurinacional().shouldBeFalse()
         uruguay.esPlurinacional().shouldBeFalse()
         bolivia.esPlurinacional().shouldBeTrue()
+        cuba.esPlurinacional().shouldBeFalse()
     }
 
     describe("Son islas") {
@@ -57,35 +62,45 @@ class PaisesTest: DescribeSpec ({
         brasil.esIsla().shouldBeFalse()
         uruguay.esIsla().shouldBeFalse()
         bolivia.esIsla().shouldBeFalse()
+        cuba.esIsla().shouldBeTrue()
     }
 
-    describe("Densidad poblacional") {
-
-    }
 
     describe("Vecino mas poblado") {
-
+        argentina.vecinoMasPoblado().equals(bolivia)
+        brasil.vecinoMasPoblado().equals(bolivia)
+        uruguay.vecinoMasPoblado().equals(brasil)
+        bolivia.vecinoMasPoblado().equals(brasil)
+        cuba.vecinoMasPoblado().equals(cuba)
     }
 
     describe("Son Limitrofes") {
-
+        argentina.esLimitrofeDe(bolivia).shouldBeTrue()
+        argentina.esLimitrofeDe(brasil).shouldBeFalse()
     }
 
     describe("Necesitan traduccion") {
-
+        argentina.necesitaTraduccion(brasil).shouldBeTrue()
+        argentina.necesitaTraduccion(uruguay).shouldBeFalse()
     }
 
     describe("Son potenciales aliados") {
-
+        argentina.aliadoPotencial(brasil).shouldBeFalse()
+        argentina.aliadoPotencial(uruguay).shouldBeTrue()
+        argentina.aliadoPotencial(cuba).shouldBeFalse()
     }
 
     describe("Conviene ir de compras") {
-
+        argentina.convieneIrDeCompras(brasil).shouldBeFalse()
+        brasil.convieneIrDeCompras(argentina).shouldBeTrue()
     }
 
     describe("Equivalencia monedas") {
-
+        argentina.aCuantoEquivale(brasil, 100.0).shouldBe(4.21)
     }
 
+    describe("Observatorio tests") {
+
+    }
 
 })

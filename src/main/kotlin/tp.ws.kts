@@ -1,3 +1,4 @@
+import kotlin.math.roundToInt
 
 interface PaisInter{
 
@@ -56,12 +57,12 @@ interface PaisInter{
 
     //Revisa si la moneda de un pais es mal "debil" que el actual
     fun convieneIrDeCompras(pais: PaisInter): Boolean {
-        return cotizacionNacionalDolar > cotizacionNacionalDolar
+        return pais.cotizacionNacionalDolar > this.cotizacionNacionalDolar
     }
 
     //Retorna el valor equivalente de la moneda del pais actual a la de un pais
     fun aCuantoEquivale(pais: PaisInter, monto: Double): Double {
-        return this.convertirADolar(monto) * pais.cotizacionNacionalDolar
+        return ((convertirADolar(monto) * pais.cotizacionNacionalDolar) * 100.0).roundToInt() / 100.0
     }
 
     //Convierte un monto de la moneda del pais a valor dolar
