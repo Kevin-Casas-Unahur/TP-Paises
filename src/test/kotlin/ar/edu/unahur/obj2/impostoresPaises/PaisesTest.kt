@@ -53,7 +53,10 @@ class PaisesTest: DescribeSpec ({
     }
 
     describe("Son islas") {
-
+        argentina.esIsla().shouldBeFalse()
+        brasil.esIsla().shouldBeFalse()
+        uruguay.esIsla().shouldBeFalse()
+        bolivia.esIsla().shouldBeFalse()
     }
 
     describe("Densidad poblacional") {
