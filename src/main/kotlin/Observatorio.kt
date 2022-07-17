@@ -6,7 +6,7 @@ object Observatorio {
         return if (!listaDePaises.any{it.nombre == nombrePais}) {
             error("No existe el pais")
         } else {
-            listaDePaises.find { it.nombre == nombrePais }!!
+            listaDePaises.find{ it.nombre == nombrePais }!!
         }
     }
 

@@ -10,8 +10,6 @@ import io.kotest.matchers.shouldBe
 
 class PaisesTest: DescribeSpec ({
 
-    val observatorio = Observatorio
-
     val argentina = Tp_ws.Pais("Argentina", "ARG", 45380000, 2780000.0, "America", "SRA", 128.22)
 
     val brasil = Tp_ws.Pais("Brasil", "BRA", 212600000, 851600000.0, "America", "BRL", 5.40)
@@ -100,7 +98,11 @@ class PaisesTest: DescribeSpec ({
     }
 
     describe("Observatorio tests") {
-
+        it("Pais con nombre") {
+            Observatorio.paisConNombre("Brasil").shouldBe(brasil)
+            Observatorio.paisConNombre("Argentina").shouldBe(argentina)
+            Observatorio.paisConNombre("Uruguay").shouldBe(uruguay)
+        }
     }
 
 })
