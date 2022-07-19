@@ -1,12 +1,19 @@
-object Observatorio {
+interface ObservatorioInter {
 
-    var listaDePaises = mutableListOf<Tp_ws.PaisInter>()
+    var listaDePaises: MutableList<Tp_ws.PaisInter>
 
-    fun paisConNombre(nombrePais: String): Tp_ws.PaisInter {
+    fun paisConNombre(nombrePais: String): Tp_ws.PaisInter
+}
+
+object Observatorio: ObservatorioInter {
+
+    override var listaDePaises = mutableListOf<Tp_ws.PaisInter>()
+
+    override fun paisConNombre(nombrePais: String): Tp_ws.PaisInter {
         return if (!listaDePaises.any{it.nombre == nombrePais}) {
             error("No existe el pais")
         } else {
-            listaDePaises.find{ it.nombre == nombrePais }!!
+            listaDePaises.find{ it.nombre == nombrePais}!!
         }
     }
 
@@ -53,3 +60,54 @@ object Observatorio {
 
 
 }
+
+open class ObservatorioDecoBase: ObservatorioInter {
+
+    var decorador: ObservatorioInter = Observatorio
+
+    fun decorador(unDecorador: ObservatorioInter) {this.decorador = unDecorador}
+
+    override var listaDePaises: MutableList<Tp_ws.PaisInter> = this.decorador.listaDePaises
+        get() = this.decorador.listaDePaises
+
+    override fun paisConNombre(nombrePais: String): Tp_ws.PaisInter {
+        return this.decorador.paisConNombre(nombrePais)
+    }
+
+}
+
+object ObservatorioLimitrofes: ObservatorioDecoBase() {
+
+
+}
+
+object ObservatorioTraduccion: ObservatorioDecoBase() {
+
+
+}
+
+object ObservatorioAliados: ObservatorioDecoBase() {
+
+}
+
+object ObservatorioCompras: ObservatorioDecoBase() {
+
+
+}
+
+object ObservatorioMoneda: ObservatorioDecoBase() {
+
+
+}
+
+object ObservatorioPoblacion: ObservatorioDecoBase() {
+
+
+}
+
+object ObservatorioContinentes: ObservatorioDecoBase() {
+
+
+}
+
+

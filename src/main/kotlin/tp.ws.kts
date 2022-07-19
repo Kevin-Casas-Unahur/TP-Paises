@@ -88,4 +88,11 @@ class Pais(
         Observatorio.listaDePaises.add(this)
     }
 
+    fun paisesLimitrofes(pais: PaisInter) {
+        paisesLimitrofes.add(pais)
+        Observatorio.paisConNombre(this.nombre).paisesLimitrofes = this.paisesLimitrofes
+    }
+
+
+
 }
