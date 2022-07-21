@@ -1,19 +1,15 @@
-import ar.edu.unahur.obj2.impostoresPaises.api.CurrencyConverterAPI
-import ar.edu.unahur.obj2.impostoresPaises.api.RestCountriesAPI
+package ar.edu.unahur.obj2.impostoresPaises
+
+import Observatorio
+import Pais
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.booleans.shouldBeFalse
+import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 
-// Algunos ejemplos para que jueguen un poco
-// con lo que devuelve la API
-
-val api = RestCountriesAPI()
-api.buscarPaisesPorNombre("guay")
-api.paisConCodigo("CHL")
-
-val currencyApi = CurrencyConverterAPI("poné acá la API key")
-// PEN es el código del sol peruano
-currencyApi.convertirDolarA("PEN")
 class ObservatorioTest: DescribeSpec({
+
+    Observatorio.listaDePaises.clear()
 
     val argentina = Pais("Argentina", "ARG", 45380000, 2780000.0, "America", "SRA", 128.22)
 

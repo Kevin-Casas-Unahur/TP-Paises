@@ -1,15 +1,15 @@
 interface ObservatorioInter {
 
-    var listaDePaises: MutableList<Tp_ws.PaisInter>
+    var listaDePaises: MutableList<PaisInter>
 
-    fun paisConNombre(nombrePais: String): Tp_ws.PaisInter
+    fun paisConNombre(nombrePais: String): PaisInter
 }
 
 object Observatorio: ObservatorioInter {
 
-    override var listaDePaises = mutableListOf<Tp_ws.PaisInter>()
+    override var listaDePaises = mutableListOf<PaisInter>()
 
-    override fun paisConNombre(nombrePais: String): Tp_ws.PaisInter {
+    override fun paisConNombre(nombrePais: String): PaisInter {
         return if (!listaDePaises.any{it.nombre == nombrePais}) {
             error("No existe el pais")
         } else {
@@ -67,10 +67,10 @@ open class ObservatorioDecoBase: ObservatorioInter {
 
     fun decorador(unDecorador: ObservatorioInter) {this.decorador = unDecorador}
 
-    override var listaDePaises: MutableList<Tp_ws.PaisInter> = this.decorador.listaDePaises
+    override var listaDePaises: MutableList<PaisInter> = this.decorador.listaDePaises
         get() = this.decorador.listaDePaises
 
-    override fun paisConNombre(nombrePais: String): Tp_ws.PaisInter {
+    override fun paisConNombre(nombrePais: String): PaisInter {
         return this.decorador.paisConNombre(nombrePais)
     }
 
