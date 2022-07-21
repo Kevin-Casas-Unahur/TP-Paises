@@ -72,17 +72,19 @@ class ObservatorioTest: DescribeSpec({
         }
 
         it("Son potenciales aliados") {
-
-
+            Observatorio.sonPotencialesAliados("Argentina", "Uruguay").shouldBeTrue()
+            Observatorio.sonPotencialesAliados("Argentina", "Cuba").shouldBeFalse()
+            Observatorio.sonPotencialesAliados("Argentina", "Brasil").shouldBeFalse()
         }
 
         it("Conviene ir de compras") {
-
-
+            Observatorio.convieneIrDeCompras("Argentina", "Brasil").shouldBeFalse()
+            Observatorio.convieneIrDeCompras("Brasil", "Argentina").shouldBeTrue()
         }
 
         it("Equivalencias entre monedas") {
-
+            Observatorio.cuantoEquivaleLaMonedaEntre("Argentina", "Brasil", 100.0).shouldBe(4.21)
+            Observatorio.cuantoEquivaleLaMonedaEntre("Brasil", "Argentina", 100.0).shouldBe(2374.44)
 
         }
 
