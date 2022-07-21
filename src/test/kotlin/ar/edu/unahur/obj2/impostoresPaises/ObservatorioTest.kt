@@ -89,17 +89,17 @@ class ObservatorioTest: DescribeSpec({
         }
 
         it("Codigos ISO de los paises mas poblados") {
-
-
+            Observatorio.codigosISODeLos5MasPoblados().size.shouldBe(5)
+            Observatorio.codigosISODeLos5MasPoblados().first().shouldBe("BRA")
+            Observatorio.codigosISODeLos5MasPoblados().last().shouldBe("URY")
         }
 
-        it("Contienentes con mas paises plurinacionales") {
-
-
+        it("Contienente con mas paises plurinacionales") {
+            Observatorio.continenteConMasPaisesPlurinacionales().shouldBe("America")
         }
 
         it("Promedio de poblacion de paises insulares") {
-
+            Observatorio.promedioDePoblacionDePaisesInsulares().shouldBe(11330000)
 
         }
     }

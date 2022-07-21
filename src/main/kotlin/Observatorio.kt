@@ -41,14 +41,24 @@ object Observatorio: ObservatorioInter {
         val paisesOrdenados = listaDePaises
         paisesOrdenados.sortByDescending { it.poblacion }
         val codigosISO = paisesOrdenados.map { it.codigoAlfa3 }
-        return codigosISO.subList(0, 4)
+        return codigosISO.subList(0, 5)
     }
 
     fun continenteConMasPaisesPlurinacionales(): String {
+
         val listaContinentes = mutableMapOf<String, Int>()
 
-        listaDePaises.forEach{if(!listaContinentes.containsKey(it.continente)){listaContinentes.keys.add(it.continente)}}
-        listaDePaises.forEach { if(it.esPlurinacional() ) { listaContinentes[it.continente]!!.plus(1)} }
+
+        listaDePaises.forEach{if(!listaContinentes.containsKey(it.continente)) {
+            listaContinentes[it.continente] = 0
+        }
+        }
+
+
+        listaDePaises.forEach { if(it.esPlurinacional() ) {
+            listaContinentes[it.continente]!!.plus(1)
+        }
+        }
 
         return listaContinentes.maxByOrNull {it.value}!!.key
     }
