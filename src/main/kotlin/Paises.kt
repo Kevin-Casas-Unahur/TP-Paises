@@ -84,9 +84,9 @@ class Pais(
     override var idiomasOficiales: MutableList<String> = mutableListOf()
 ): PaisInter {
 
-    init {
+    /*init {
         Observatorio.listaDePaises.add(this)
-    }
+    }*/
 
 
 

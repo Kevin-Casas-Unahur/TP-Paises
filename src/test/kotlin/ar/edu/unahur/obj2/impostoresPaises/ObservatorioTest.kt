@@ -46,11 +46,59 @@ class ObservatorioTest: DescribeSpec({
     bolivia.bloquesRegionales.add("OEA")
     cuba.bloquesRegionales.add("UNASUR")
 
+    Observatorio.listaDePaises.add(argentina)
+    Observatorio.listaDePaises.add(brasil)
+    Observatorio.listaDePaises.add(uruguay)
+    Observatorio.listaDePaises.add(bolivia)
+    Observatorio.listaDePaises.add(cuba)
+
     describe("Observatorio tests") {
         it("Pais con nombre") {
             Observatorio.paisConNombre("Brasil").shouldBe(brasil)
             Observatorio.paisConNombre("Argentina").shouldBe(argentina)
             Observatorio.paisConNombre("Uruguay").shouldBe(uruguay)
+        }
+
+        it("Son Limitrofes") {
+            Observatorio.sonLimitrofes("Argentina", "Uruguay").shouldBeTrue()
+            Observatorio.sonLimitrofes("Argentina", "Brasil").shouldBeFalse()
+            Observatorio.sonLimitrofes("Argentina", "Cuba").shouldBeFalse()
+        }
+
+        it("Necesitan traduccion") {
+            Observatorio.necesitanTraduccion("Argentina", "Uruguay").shouldBeFalse()
+            Observatorio.necesitanTraduccion("Argentina", "Brasil").shouldBeTrue()
+            Observatorio.necesitanTraduccion("Argentina", "Bolivia").shouldBeFalse()
+        }
+
+        it("Son potenciales aliados") {
+
+
+        }
+
+        it("Conviene ir de compras") {
+
+
+        }
+
+        it("Equivalencias entre monedas") {
+
+
+        }
+
+        it("Codigos ISO de los paises mas poblados") {
+
+
+        }
+
+        it("Contienentes con mas paises plurinacionales") {
+
+
+        }
+
+        it("Promedio de poblacion de paises insulares") {
+
+
         }
     }
 })
