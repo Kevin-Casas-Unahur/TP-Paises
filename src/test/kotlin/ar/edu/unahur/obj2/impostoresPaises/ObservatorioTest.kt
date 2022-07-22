@@ -21,6 +21,8 @@ class ObservatorioTest: DescribeSpec({
 
     val cuba = Pais("Cuba", "CUB", 11330000, 113860.0, "America", "CUP", 23.96)
 
+    val japon = Pais("Japon", "JPN", 125800000, 377975.0, "Asia", "JPN", 136.13)
+
     //Idiomas Paises
     argentina.idiomasOficiales.add("Español")
     brasil.idiomasOficiales.add("Portugues")
@@ -29,6 +31,7 @@ class ObservatorioTest: DescribeSpec({
     bolivia.idiomasOficiales.add("Aimara")
     bolivia.idiomasOficiales.add("guaraní")
     cuba.idiomasOficiales.add("Español")
+    japon.idiomasOficiales.add("Japones")
 
     //Paises Limitrofes
     argentina.paisesLimitrofes.add(uruguay)
@@ -45,12 +48,14 @@ class ObservatorioTest: DescribeSpec({
     uruguay.bloquesRegionales.add("OEA")
     bolivia.bloquesRegionales.add("OEA")
     cuba.bloquesRegionales.add("UNASUR")
+    japon.bloquesRegionales.add("G7")
 
     Observatorio.listaDePaises.add(argentina)
     Observatorio.listaDePaises.add(brasil)
     Observatorio.listaDePaises.add(uruguay)
     Observatorio.listaDePaises.add(bolivia)
     Observatorio.listaDePaises.add(cuba)
+    Observatorio.listaDePaises.add(japon)
 
     describe("Observatorio tests") {
         it("Pais con nombre") {
@@ -99,7 +104,7 @@ class ObservatorioTest: DescribeSpec({
         }
 
         it("Promedio de poblacion de paises insulares") {
-            Observatorio.promedioDePoblacionDePaisesInsulares().shouldBe(11330000)
+            Observatorio.promedioDePoblacionDePaisesInsulares().shouldBe(68565000)
 
         }
     }
