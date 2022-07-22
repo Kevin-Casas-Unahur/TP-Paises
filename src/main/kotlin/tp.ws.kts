@@ -1,10 +1,10 @@
 import kotlin.math.roundToInt
 
-/*
+
 class Pais(){
 
-    var nombre: String = ""
-    var codigoAlfa3: String = ""
+    val nombre: String = ""
+    val codigoAlfa3: String = ""
     var poblacion: Int = 0
     var superficie: Double = 0.0
     var continente: String = ""
@@ -14,13 +14,18 @@ class Pais(){
     var bloquesRegionales: MutableList<String> = mutableListOf()
     var idiomasOficiales: MutableList<String> = mutableListOf()
 
+    //el init da error todavia
+
     init {
         Observatorio.listaDePaises.add(this)
     }
 
-    fun paisesLimitrofes(pais: PaisInter) {
+    //borro agregar el pais limitrofe en el observatorio, porque me da error, y porque creo
+    //que al ser un objeto que esta contenido en observatorio, no es necesario actualizarlo
+    // en 2 lugares sino solo al objeto. lo dejo comentado igual
+    fun paisesLimitrofes(pais: Pais) {
         paisesLimitrofes.add(pais)
-        Observatorio.paisConNombre(this.nombre).paisesLimitrofes = this.paisesLimitrofes
+        //Observatorio.paisConNombre(this.nombre).paisesLimitrofes.add(pais)
     }
 
     //Es plurinacional si tiene 2 o mas idiomas oficiales
@@ -50,27 +55,27 @@ class Pais(){
     }
 
     //Revisa si un pais comparte al menos 1 lenguaje oficial con el actual
-    fun necesitaTraduccion(pais: PaisInter): Boolean {
+    fun necesitaTraduccion(pais: Pais): Boolean {
         return idiomasOficiales.intersect(pais.idiomasOficiales).isEmpty()
     }
 
     //Revisa si un pais es un aliado potencial del actual
-    fun aliadoPotencial(pais: PaisInter): Boolean {
+    fun aliadoPotencial(pais: Pais): Boolean {
         return !this.necesitaTraduccion(pais) && this.compartenBloqueRegional(pais)
     }
 
     //Revisa si un pais comparte bloque regional con el actual
-    fun compartenBloqueRegional(pais: PaisInter): Boolean {
+    fun compartenBloqueRegional(pais: Pais): Boolean {
         return bloquesRegionales.intersect(pais.bloquesRegionales).isNotEmpty()
     }
 
     //Revisa si la moneda de un pais es mal "debil" que el actual
-    fun convieneIrDeCompras(pais: PaisInter): Boolean {
+    fun convieneIrDeCompras(pais: Pais): Boolean {
         return pais.cotizacionNacionalDolar > this.cotizacionNacionalDolar
     }
 
     //Retorna el valor equivalente de la moneda del pais actual a la de un pais
-    fun aCuantoEquivale(pais: PaisInter, monto: Double): Double {
+    fun aCuantoEquivale(pais: Pais, monto: Double): Double {
         return ((convertirADolar(monto) * pais.cotizacionNacionalDolar) * 100.0).roundToInt() / 100.0
     }
 
@@ -82,4 +87,4 @@ class Pais(){
 
 
 }
-*/
+

@@ -96,4 +96,8 @@ class PaisesTest: DescribeSpec ({
         argentina.aCuantoEquivale(brasil, 100.0).shouldBe(4.21)
     }
 
+    describe("Codigo alfa 3 de argentina"){
+        argentina.codigoAlfa3.shouldBe("ARG")
+    }
+
 })
