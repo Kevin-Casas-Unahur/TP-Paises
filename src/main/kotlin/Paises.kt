@@ -15,6 +15,7 @@ class Pais(var nombre: String = "", var codigoAlfa3: String = "", var poblacion:
         return this.paisesLimitrofes.isEmpty()
     }
 
+    //Densidad poblacional: poblacion / superficie
     fun densidadPoblacional(): Int {
         return (this.poblacion / this.superficie).toInt()
     }

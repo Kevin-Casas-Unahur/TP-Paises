@@ -96,7 +96,7 @@ class ObservatorioTest: DescribeSpec({
         it("Codigos ISO de los paises mas poblados") {
             Observatorio.codigosISODeLos5MasPoblados().size.shouldBe(5)
             Observatorio.codigosISODeLos5MasPoblados().first().shouldBe("BRA")
-            Observatorio.codigosISODeLos5MasPoblados().last().shouldBe("URY")
+            Observatorio.codigosISODeLos5MasPoblados().last().shouldBe("CUB")
         }
 
         it("Contienente con mas paises plurinacionales") {
