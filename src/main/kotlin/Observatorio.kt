@@ -61,22 +61,4 @@ object Observatorio{
         return (paisesInsulares.sumBy { it.poblacion }.div(paisesInsulares.size)).toInt()
     }
 
-
 }
-/*
-open class ObservatorioDecoBase: ObservatorioInter {
-
-    var decorador: ObservatorioInter = Observatorio
-
-    fun decorador(unDecorador: ObservatorioInter) {this.decorador = unDecorador}
-
-    override var listaDePaises: MutableList<PaisInter> = this.decorador.listaDePaises
-        get() = this.decorador.listaDePaises
-
-    override fun paisConNombre(nombrePais: String): PaisInter {
-        return this.decorador.paisConNombre(nombrePais)
-    }
-
-}
-
-*/

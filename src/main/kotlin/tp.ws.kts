@@ -1,6 +1,6 @@
 import kotlin.math.roundToInt
 
-
+/*
 class Pais(){
 
     var nombre: String = ""
@@ -10,7 +10,7 @@ class Pais(){
     var continente: String = ""
     var codigoMonedaLocal: String = ""
     var cotizacionNacionalDolar: Double = 0.0
-    var paisesLimitrofes: MutableList<PaisInter> = mutableListOf()
+    var paisesLimitrofes: MutableList<Pais> = mutableListOf()
     var bloquesRegionales: MutableList<String> = mutableListOf()
     var idiomasOficiales: MutableList<String> = mutableListOf()
 
@@ -82,3 +82,4 @@ class Pais(){
 
 
 }
+*/
