@@ -1,18 +1,27 @@
-/*import kotlin.math.roundToInt
+import kotlin.math.roundToInt
 
-interface PaisInter{
 
-    var nombre: String
-    var codigoAlfa3: String
-    var poblacion: Int
-    var superficie: Double
-    var continente: String
-    var codigoMonedaLocal: String
-    var cotizacionNacionalDolar: Double
-    var paisesLimitrofes: MutableList<PaisInter>
-    var bloquesRegionales: MutableList<String>
-    var idiomasOficiales: MutableList<String>
+class Pais(){
 
+    var nombre: String = ""
+    var codigoAlfa3: String = ""
+    var poblacion: Int = 0
+    var superficie: Double = 0.0
+    var continente: String = ""
+    var codigoMonedaLocal: String = ""
+    var cotizacionNacionalDolar: Double = 0.0
+    var paisesLimitrofes: MutableList<PaisInter> = mutableListOf()
+    var bloquesRegionales: MutableList<String> = mutableListOf()
+    var idiomasOficiales: MutableList<String> = mutableListOf()
+
+    init {
+        Observatorio.listaDePaises.add(this)
+    }
+
+    fun paisesLimitrofes(pais: PaisInter) {
+        paisesLimitrofes.add(pais)
+        Observatorio.paisConNombre(this.nombre).paisesLimitrofes = this.paisesLimitrofes
+    }
 
     //Es plurinacional si tiene 2 o mas idiomas oficiales
     fun esPlurinacional(): Boolean {
@@ -29,14 +38,14 @@ interface PaisInter{
     }
 
     //El maximo en poblacion de los vecinos, pero cuenta también al pais local
-    fun vecinoMasPoblado(): PaisInter {
+    fun vecinoMasPoblado(): Pais {
         val paisesACheckear = paisesLimitrofes
         paisesACheckear.add(this)
         return paisesACheckear.maxByOrNull { it.poblacion }!!
     }
 
     //Revisa si un pais es limitrofe con el actual
-    fun esLimitrofeDe(pais: PaisInter): Boolean {
+    fun esLimitrofeDe(pais: Pais): Boolean {
         return this.paisesLimitrofes.contains(pais)
     }
 
@@ -69,30 +78,7 @@ interface PaisInter{
     fun convertirADolar(monto: Double): Double {
         return monto.div(cotizacionNacionalDolar)
     }
+
+
+
 }
-
-class Pais(
-    override var nombre: String = "",
-    override var codigoAlfa3: String = "",
-    override var poblacion: Int = 0,
-    override var superficie: Double = 0.0,
-    override var continente: String = "",
-    override var codigoMonedaLocal: String = "",
-    override var cotizacionNacionalDolar: Double = 0.0,
-    override var paisesLimitrofes: MutableList<PaisInter> = mutableListOf(),
-    override var bloquesRegionales: MutableList<String> = mutableListOf(),
-    override var idiomasOficiales: MutableList<String> = mutableListOf()
-): PaisInter {
-
-    init {
-        Observatorio.listaDePaises.add(this)
-    }
-
-    fun paisesLimitrofes(pais: PaisInter) {
-        paisesLimitrofes.add(pais)
-        Observatorio.paisConNombre(this.nombre).paisesLimitrofes = this.paisesLimitrofes
-    }
-
-
-
-}*/

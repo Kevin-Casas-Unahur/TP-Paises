@@ -1,15 +1,8 @@
-interface ObservatorioInter {
+object Observatorio{
 
-    var listaDePaises: MutableList<PaisInter>
+    var listaDePaises = mutableListOf<Pais>()
 
-    fun paisConNombre(nombrePais: String): PaisInter
-}
-
-object Observatorio: ObservatorioInter {
-
-    override var listaDePaises = mutableListOf<PaisInter>()
-
-    override fun paisConNombre(nombrePais: String): PaisInter {
+     fun paisConNombre(nombrePais: String): Pais {
         return if (!listaDePaises.any{it.nombre == nombrePais}) {
             error("No existe el pais")
         } else {
@@ -70,7 +63,7 @@ object Observatorio: ObservatorioInter {
 
 
 }
-
+/*
 open class ObservatorioDecoBase: ObservatorioInter {
 
     var decorador: ObservatorioInter = Observatorio
@@ -86,38 +79,4 @@ open class ObservatorioDecoBase: ObservatorioInter {
 
 }
 
-object ObservatorioLimitrofes: ObservatorioDecoBase() {
-
-
-}
-
-object ObservatorioTraduccion: ObservatorioDecoBase() {
-
-
-}
-
-object ObservatorioAliados: ObservatorioDecoBase() {
-
-}
-
-object ObservatorioCompras: ObservatorioDecoBase() {
-
-
-}
-
-object ObservatorioMoneda: ObservatorioDecoBase() {
-
-
-}
-
-object ObservatorioPoblacion: ObservatorioDecoBase() {
-
-
-}
-
-object ObservatorioContinentes: ObservatorioDecoBase() {
-
-
-}
-
-
+*/
