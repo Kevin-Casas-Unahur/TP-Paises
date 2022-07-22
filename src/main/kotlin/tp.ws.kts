@@ -1,6 +1,6 @@
 import kotlin.math.roundToInt
 
-
+/*
 class Pais(){
 
     val nombre: String = ""
@@ -87,4 +87,4 @@ class Pais(){
 
 
 }
-
+*/
