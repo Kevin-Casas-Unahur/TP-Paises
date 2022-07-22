@@ -3,8 +3,8 @@ object Observatorio{
     var listaDePaises = mutableListOf<Pais>()
 
      fun paisConNombre(nombrePais: String): Pais {
-        return if (!listaDePaises.any{it.nombre == nombrePais}) {
-            error("No existe el pais")
+        return if (this.listaDePaises.isEmpty() || !listaDePaises.any{it.nombre == nombrePais}) {
+            error("El pais no existe")
         } else {
             listaDePaises.find{ it.nombre == nombrePais}!!
         }
@@ -41,17 +41,9 @@ object Observatorio{
 
         val listaContinentes = mutableMapOf<String, Int>()
 
+        listaDePaises.forEach{if(!listaContinentes.containsKey(it.continente)) {listaContinentes[it.continente] = 0 } }
 
-        listaDePaises.forEach{if(!listaContinentes.containsKey(it.continente)) {
-            listaContinentes[it.continente] = 0
-        }
-        }
-
-
-        listaDePaises.forEach { if(it.esPlurinacional() ) {
-            listaContinentes[it.continente]!!.plus(1)
-        }
-        }
+        listaDePaises.forEach {if(it.esPlurinacional() ) {listaContinentes[it.continente]!!.plus(1) } }
 
         return listaContinentes.maxByOrNull {it.value}!!.key
     }
