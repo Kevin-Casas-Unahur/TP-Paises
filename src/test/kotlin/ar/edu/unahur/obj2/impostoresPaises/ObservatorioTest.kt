@@ -100,6 +100,17 @@ class ObservatorioTest: DescribeSpec({
         }
 
         it("Contienente con mas paises plurinacionales") {
+            val india = Pais(continente = "Asia")
+            val china = Pais(continente = "Asia")
+
+            india.idiomasOficiales.add("Ingles")
+            india.idiomasOficiales.add("Hindu")
+            china.idiomasOficiales.add("Ingles")
+            china.idiomasOficiales.add("Mandarin")
+
+            Observatorio.listaDePaises.add(india)
+            Observatorio.listaDePaises.add(china)
+
             Observatorio.continenteConMasPaisesPlurinacionales().shouldBe("America")
         }
 

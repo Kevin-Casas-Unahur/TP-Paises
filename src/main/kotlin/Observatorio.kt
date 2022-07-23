@@ -48,16 +48,21 @@ object Observatorio{
         }
     }
 
-    //Retorna el contienente con mas paises plurinacionales
+    //Retorna el continente con más paises plurinacionales
     fun continenteConMasPaisesPlurinacionales(): String {
 
-        val listaContinentes = mutableMapOf<String, Int>()
+        return if(this.listaDePaises.any { it.esPlurinacional() }) {
+            val listaContinentes = mutableMapOf<String, Int>()
 
-        listaDePaises.forEach{if(!listaContinentes.containsKey(it.continente)) {listaContinentes[it.continente] = 0 } }
+            listaDePaises.forEach{if(!listaContinentes.containsKey(it.continente)) {listaContinentes[it.continente] = 0 } }
 
-        listaDePaises.forEach {if(it.esPlurinacional() ) {listaContinentes[it.continente]!!.plus(1) } }
+            listaDePaises.forEach {if(it.esPlurinacional() ) {listaContinentes[it.continente]!!.plus(1) } }
 
-        return listaContinentes.maxByOrNull {it.value}!!.key
+            listaContinentes.maxByOrNull {it.value}!!.key
+        } else {
+            "Ninguno"
+        }
+
     }
 
     //Retorna el valor promedio de la poblacion de los paises insulares
