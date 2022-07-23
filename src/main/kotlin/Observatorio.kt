@@ -49,6 +49,7 @@ object Observatorio{
     }
 
     //Retorna el continente con más paises plurinacionales
+    //De haber dos o más continentes con la misma cantidad de paises plurinacionales retorna el continente del primer pais plurinacional
     fun continenteConMasPaisesPlurinacionales(): String {
 
         return if(this.listaDePaises.any { it.esPlurinacional() }) {
