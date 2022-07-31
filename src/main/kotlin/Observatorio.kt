@@ -2,6 +2,7 @@ object Observatorio{
 
     var listaDePaises = mutableListOf<Pais>()
 
+
     //Busca en la colleccion de paises a un pais por su nombre
     fun paisConNombre(nombrePais: String): Pais {
         return if (this.listaDePaises.isEmpty() || !listaDePaises.any{it.nombre == nombrePais}) {
