@@ -2,6 +2,8 @@ package ar.edu.unahur.obj2.impostoresPaises
 
 import Observatorio
 import Pais
+import TransformadorPaises
+import ar.edu.unahur.obj2.impostoresPaises.api.RestCountriesAPI
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
@@ -10,6 +12,8 @@ import io.kotest.matchers.shouldBe
 class ObservatorioTest: DescribeSpec({
 
     Observatorio.listaDePaises.clear()
+    //TransformadorPaises.transformarColleccion()
+
 
     val argentina = Pais("Argentina", "ARG", 45380000, 2780000.0, "America", "SRA", 128.22)
 
@@ -22,6 +26,8 @@ class ObservatorioTest: DescribeSpec({
     val cuba = Pais("Cuba", "CUB", 11330000, 113860.0, "America", "CUP", 23.96)
 
     val japon = Pais("Japon", "JPN", 125800000, 377975.0, "Asia", "JPN", 136.13)
+
+
 
     //Idiomas Paises
     argentina.idiomasOficiales.add("Español")
@@ -56,6 +62,8 @@ class ObservatorioTest: DescribeSpec({
     Observatorio.listaDePaises.add(bolivia)
     Observatorio.listaDePaises.add(cuba)
     Observatorio.listaDePaises.add(japon)
+
+
 
     describe("Observatorio tests") {
         it("Pais con nombre") {
